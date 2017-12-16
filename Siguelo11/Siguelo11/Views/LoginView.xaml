@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siguelo11.Views.LoginView"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Login">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Login}"
+            Padding="8">
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Síguelo App"></Label>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Usuario"></Label>
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Placeholder="Escriba el nombre de usuario"
+                    Text="{Binding User, Mode=TwoWay}"></Entry>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Contraseña"></Label>
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    IsPassword="True"
+                    Placeholder="Escriba la contraseña"
+                    Text="{Binding Password, Mode=TwoWay}"></Entry>
+            </Grid>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center">
+                <Label
+                    Text="Recordarme"
+                    VerticalOptions="Center"></Label>
+                <Switch
+                    IsToggled="{Binding IsToggled,Mode=TwoWay}"></Switch>
+            </StackLayout>
+            <Button
+                Command="{Binding LoginCommand}"
+                BackgroundColor="#0B615E"
+                BorderRadius="23"
+                IsEnabled="{Binding IsEnabled,Mode=TwoWay}"
+                Margin="50,0"
+                HeightRequest="46"
+                Text="Login"></Button>
+            <Button
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="DodgerBlue"
+                BorderRadius="23"
+                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                Margin="50,0"
+                HeightRequest="46"
+                Text="Login With Facebook"></Button>
+            <ActivityIndicator
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

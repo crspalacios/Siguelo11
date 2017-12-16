@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siguelo11.Views.AlarmaView"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Alarma">
+    <ContentPage.Content>
+        <StackLayout
+                BindingContext="{Binding Alarma}"
+                Padding="8">
+            <Label
+                Text="Gracias por ayudar a tu ciudad"></Label>
+            <Entry
+                Text="{Binding Dato, Mode=TwoWay}"
+                Placeholder="Escribe un dato que ayude a las autoridades"
+                WidthRequest="10"></Entry>
+            <Button
+                Command="{Binding MapsCommand}"
+                BackgroundColor="#0B615E"
+                BorderRadius="23"
+                IsEnabled="{Binding IsEnabled,Mode=TwoWay}"
+                Margin="50,0"
+                HeightRequest="46"
+                Text="Alarmar!"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
